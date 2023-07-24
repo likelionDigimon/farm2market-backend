@@ -1,5 +1,7 @@
 package com.springboot.farm2marketbackend.data.entity;
 
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -16,6 +18,7 @@ import javax.persistence.EntityListeners;
 import javax.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
 
+@Data
 @Getter
 @Setter
 @ToString
@@ -23,6 +26,7 @@ import java.time.LocalDateTime;
 @EntityListeners(AuditingEntityListener.class)
 public class BaseEntity {
 
+    @ApiModelProperty(value = "생성일시", example = "2023-07-24T12:34:56")
     @CreatedDate
     @Column(updatable = false)
     private LocalDateTime createdAt;
