@@ -1,8 +1,10 @@
 package com.springboot.farm2marketbackend.data.entity;
 
 import lombok.*;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -22,4 +24,5 @@ public class Answer extends BaseEntity{
     private String title;
     @Column(nullable = false)
     private String content;
+
 }
