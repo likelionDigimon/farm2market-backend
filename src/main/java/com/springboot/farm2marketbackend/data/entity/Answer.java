@@ -1,7 +1,9 @@
 package com.springboot.farm2marketbackend.data.entity;
 
 import lombok.*;
+
 import org.springframework.data.annotation.CreatedDate;
+
 import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
@@ -25,6 +27,7 @@ public class Answer{
     private String title;
     @Column(nullable = false)
     private String content;
+
     @CreatedDate
     @Column(updatable = false)
     private LocalDateTime createdAt;
@@ -32,5 +35,6 @@ public class Answer{
     @LastModifiedDate
     @Column(updatable = false)
     private LocalDateTime updatedAt;
+
 
 }
