@@ -52,7 +52,7 @@ public class AnswerController {
             @RequestBody  AnswerDto answerDto, HttpServletRequest request) throws Exception
     {
         AnswerDto answerDtoResponse = answerService.updateAnswer(answerDto.getId(),
-                answerDto);
+                answerDto.getContent());
 
         LOGGER.info("호출 API: " + "update Answer" + " 접속자 IP: " + request.getRemoteAddr() + ", 최초 접속 시간: " +  LocalDateTime.now());
 

@@ -8,7 +8,7 @@ import java.util.List;
 public interface AnswerService {
     AnswerDto getAnswer(Long id);
     AnswerDto saveAnswer(AnswerDto answerDto);
-    AnswerDto updateAnswer(Long id, AnswerDto answerDto) throws Exception;
+    AnswerDto updateAnswer(Long id, String content) throws Exception;
     void deleteAnswer(Long id) throws Exception;
     List<Answer> getAllApplications();
 }

@@ -6,6 +6,7 @@ import com.springboot.farm2marketbackend.data.repository.AnswerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -36,26 +37,24 @@ public class AnswerDAOImpl implements AnswerDAO {
     }
 
     @Override
-    public Answer updateAnswer(Answer answer) throws Exception {
+    public Answer updateAnswer(Long id, String content) throws Exception {
         // id로 기존 데이터를 찾아온다.
-        Optional<Answer> selectAnswer = answerRepository.findById(answer.getId());
+        Optional<Answer> selectAnswer = answerRepository.findById(id);
+        Answer updatedAnswer;
 
         // 기존 데이터가 존재하는지 확인한다.
         if (selectAnswer.isPresent()) {
             Answer existingAnswer = selectAnswer.get();
 
             // 수정할 데이터를 설정한다.
-            existingAnswer.setAuthor(answer.getAuthor());
-            existingAnswer.setTitle(answer.getTitle());
-            existingAnswer.setContent(answer.getContent());
-
+            existingAnswer.setContent(content);
+            existingAnswer.setUpdatedAt(LocalDateTime.now());
             // 수정된 데이터를 데이터베이스에 저장한다.
-            Answer updatedAnswer = answerRepository.save(existingAnswer);
-
-            return updatedAnswer;
+            updatedAnswer = answerRepository.save(existingAnswer);
         } else {
             throw new Exception("해당 id에 해당하는 데이터가 존재하지 않습니다.");
         }
+        return updatedAnswer;
     }
     @Override
     public void deleteAnswer(Long id) throws Exception {

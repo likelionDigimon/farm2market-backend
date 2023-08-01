@@ -7,11 +7,13 @@ import javax.persistence.Column;
 import java.time.LocalDateTime;
 
 @Data
-public class AnswerDto extends BaseEntityDto{
+public class AnswerDto{
     private Long id;
     private String author;
 
     private String title;
     private String content;
+    private LocalDateTime createdAt;
 
+    private LocalDateTime updatedAt;
 }

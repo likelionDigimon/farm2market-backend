@@ -7,7 +7,7 @@ import java.util.List;
 public interface AnswerDAO {
     Answer insertAnswer(Answer answer);
     Answer selectAnswer(Long id);
-    Answer updateAnswer(Answer answer) throws Exception;
+    Answer updateAnswer(Long id, String content) throws Exception;
     void deleteAnswer(Long id) throws Exception;
     List<Answer> getAllApplications();
 }

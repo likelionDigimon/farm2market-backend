@@ -26,7 +26,6 @@ import java.time.LocalDateTime;
 @EntityListeners(AuditingEntityListener.class)
 public class BaseEntity {
 
-    @ApiModelProperty(value = "생성일시", example = "2023-07-24T12:34:56")
     @CreatedDate
     @Column(updatable = false)
     private LocalDateTime createdAt;
