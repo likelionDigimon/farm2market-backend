@@ -37,6 +37,14 @@ public class SupplierBoard {
 
     @Column(nullable = false)
     private Long supplier_id;
+
+    @Column
+    private String title;
+    @Column
+    private String introduction;
+    @Column(name = "image_id") // image_id 컬럼 추가
+    private Long imageId; // 이미지와의 연결을 위한 외래키
+
     @Lob
     @Column
     private byte[] imageData; // 이미지 데이터

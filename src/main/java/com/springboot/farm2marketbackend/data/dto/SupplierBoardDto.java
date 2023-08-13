@@ -30,6 +30,10 @@ public class SupplierBoardDto {
     private LocalDateTime createdDate;
 
     private LocalDateTime modifiedDate;
+
+    private String title;
+    private String introduction;
+
     private Image image;
     private Long imageId;
 
