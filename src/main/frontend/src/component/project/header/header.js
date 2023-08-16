@@ -64,7 +64,7 @@ const Header = () => {
                             </DropItem>
                         </DropNavGroup>
                         <DropNavGroup>
-                            <DropItem as={Link} to="/info">
+                            <DropItem as={Link} to="/sellerboard/selldetail">
                                 정보 수정
                             </DropItem>
                         </DropNavGroup>

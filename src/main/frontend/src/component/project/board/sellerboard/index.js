@@ -9,6 +9,7 @@ import {
   InblockContainer,
 } from "../../../emotion/component";
 import {Link} from "react-router-dom";
+import {OuterContainer} from "../agricultboard/component";
 import axios from "axios";
 const Sellerboard = () => {
   const [Array,setArray] = useState([]);
@@ -106,13 +107,15 @@ const Sellerboard = () => {
             <InblockContainer>
               {currentItems &&
                   currentItems.map((project) => (
-                      <ProjectBox
-                          key={project.id}
-                          title={project.name}
-                          content={project.product}
-                          tags={[project.keyword]}
-                          imageSrc={project.imageData}
-                      />
+                      <Link to={`/sellerboard/selldetail/${project.id}`}>
+                        <ProjectBox
+                            key={project.id}
+                            title={project.name}
+                            content={project.product}
+                            tags={[project.keyword]}
+                            imageSrc={project.imageData}
+                        />
+                      </Link>
                   ))}
             </InblockContainer>
         <FootContainer>
