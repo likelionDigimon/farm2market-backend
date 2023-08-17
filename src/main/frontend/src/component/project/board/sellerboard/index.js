@@ -56,7 +56,7 @@ const Sellerboard = () => {
           <Title>공급자 게시판</Title>
           <ButtonContainer>
             <Link
-                to="/seller/wirte"
+                to="/supplier/write"
             >
               <Button>
                 <svg

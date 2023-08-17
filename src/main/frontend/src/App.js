@@ -8,7 +8,11 @@ import Mypage from "./component/project/mypage/mypage";
 import Signin from "./component/project/signin/signin";
 import Signup from "./component/project/signup/signup";
 import Proboard from "./component/project/board/proboard";
+import ProDetail from './component/project/board/proboard/prodetail/prodetail';
+import Supplierupdate from './component/project/board/proboard/suppllierupdate/supplierupdat';
 import Sellerboard from "./component/project/board/sellerboard";
+import SellDetail from "./component/project/board/sellerboard/selldetail/selldetail";
+import Sellupdate from './component/project/board/sellerboard/sellupdate/sellupdate';
 import Agriboard from "./component/project/board/agricultboard";
 import Community from "./component/project/community";
 import PersonalInquiry from "./component/project/Inquiry/personInquiry";
@@ -17,9 +21,8 @@ import Findpassword from "./component/project/find/findpassword";
 import Findresultid from "./component/project/find/findid/result";
 import Findresultpass from "./component/project/find/findpassword/result";
 import Sellerwriting from "./component/project/writing/aiwriting/sellerwriting";
+import SupplierWriting from './component/project/writing/aiwriting/supplierwriting';
 import Inquirywriting from "./component/project/writing/aiwriting/Inquirywriting";
-import SellDetail from "./component/project/board/sellerboard/selldetail/selldetail";
-import Sellupdate from './component/project/board/sellerboard/sellupdate/sellupdate';
 
 import "./App.css";
 import Header from "./component/project/header/header";
@@ -36,6 +39,8 @@ function App() {
                         <Route path="/signin" element={<Signin />} />
                         <Route path="/signup" element={<Signup />} />
                         <Route path="/proboard" element={<Proboard />} />
+                        <Route path='/proboard/prodetail/:id' element={<ProDetail/>}/>
+                        <Route path='/proboard/prodetail/:id/supplierupdate' element={<Supplierupdate/>}/>
                         <Route path="/sellerboard" element={<Sellerboard />} />
                         <Route path="/sellerboard/selldetail/:id" element={<SellDetail/>} />
                         <Route path="/agriboard" element={<Agriboard />} />
@@ -45,7 +50,8 @@ function App() {
                         <Route path="/findpass" element={<Findpassword />} />
                         <Route path="/findid/result" element={<Findresultid />} />
                         <Route path="/findpass/result" element={<Findresultpass />} />
-                        <Route path="/seller/wirte" element={<Sellerwriting />} />
+                        <Route path="/seller/write" element={<Sellerwriting />} />
+                        <Route path="/supplier/write" element={<SupplierWriting/>}/>
                         <Route path="/Inquiry/wirte" element={<Inquirywriting />} />
                         <Route path="/sellerboard/selldetail/:id/sellupdate" element={<Sellupdate/>} />
                     </Routes>

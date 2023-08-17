@@ -1,7 +1,10 @@
 import styled from 'styled-components';
-import ProContent from '../../../../img/prodetail/procontent.png'
-import SellerProfileImg from '../../../../img/selldetail/profile.svg'
-import ChatLogoImg from '../../../../img/selldetail/chatlogo.svg'
+// import ProContent from '../../../../img/prodetail/procontent.png'
+// import SellerProfileImg from '../../../../img/selldetail/profile.svg'
+// import ChatLogoImg from '../../../../img/selldetail/chatlogo.svg'
+
+const emptyImageURL = 'data:image/png;base64,iVBORw...'; // 빈 이미지의 Base64 데이터
+
 
 export const IndexContainer = styled.div`
   width: 1920px;
@@ -21,7 +24,7 @@ export const ContentBox = styled.div`
 `;
 
 export const ContentImg = styled.div`
-background: url(${ProContent}) no-repeat center center;
+background: url(${emptyImageURL}) no-repeat center center;
 width: 1132px;
 height: 646px;
 flex-shrink: 0;
@@ -45,7 +48,7 @@ justify-content: space-between;
 `;
 
 export const ProfileImg = styled.div`
-background: url(${SellerProfileImg}) no-repeat center center;
+background: url(${emptyImageURL}) no-repeat center center;
 width: 97px;
 height: 97px;
 flex-shrink: 0;
@@ -90,7 +93,7 @@ line-height: 20px; /* 83.333% */
 `;
 
 export const ChatLogo = styled.div`
-background: url(${ChatLogoImg}) no-repeat;
+background: url(${emptyImageURL}) no-repeat;
 width: 41px;
 height: 40px;
 flex-shrink: 0;
