@@ -18,7 +18,7 @@ const Proboard = () => {
   const [Array,setArray] = useState([]);
 
   useEffect(() => {
-    axios.get('/seller-board/getAllSellerBoard')
+    axios.get('/supplier-board/getAllSupplierBoard')
         .then(response => {
           const dataArray = response.data; // Assuming the response data is an array
           setArray(dataArray);
@@ -57,7 +57,7 @@ const Proboard = () => {
     <>
       <Inners>
         <OuterContainer>
-          <Title>판매자 게시판</Title>
+          <Title>공급자 게시판</Title>
           <ButtonContainer>
             <Link
                 to="/seller/write"

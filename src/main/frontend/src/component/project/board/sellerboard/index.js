@@ -53,7 +53,7 @@ const Sellerboard = () => {
   return (
       <Inners>
         <OuterContainer>
-          <Title>공급자 게시판</Title>
+          <Title>판매자 게시판</Title>
           <ButtonContainer>
             <Link
                 to="/supplier/write"
