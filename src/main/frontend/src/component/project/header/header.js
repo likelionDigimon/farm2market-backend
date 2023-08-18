@@ -62,10 +62,10 @@ const Header = () => {
                 <DropdownMenu>
                     <DropNav>
                         <DropNavGroup>
-                            <DropItem as={Link} to="/proboard">
+                            <DropItem as={Link} to="/sellerboard">
                                 판매자 정보 게시판
                             </DropItem>
-                            <DropItem as={Link} to="/sellerboard">
+                            <DropItem as={Link} to="/proboard">
                                 농산물 등록 게시판
                             </DropItem>
                             <DropItem as={Link} to="/Inquiry/personal">

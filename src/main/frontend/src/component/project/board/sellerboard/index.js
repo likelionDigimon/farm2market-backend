@@ -10,7 +10,7 @@ import {
   InblockContainer,
 } from "../../../emotion/component";
 import {Link} from "react-router-dom";
-import {OuterContainer} from "../agricultboard/component";
+// import {OuterContainer} from "../agricultboard/component";
 import axios from "axios";
 
 const Sellerboard = () => {
@@ -58,7 +58,7 @@ const Sellerboard = () => {
           <Title>판매자 게시판</Title>
           <ButtonContainer>
             <Link
-                to="/supplier/write"
+                to="/seller/write"
             >
               <Button>
                 <svg
