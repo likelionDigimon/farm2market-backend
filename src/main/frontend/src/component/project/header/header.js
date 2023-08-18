@@ -45,7 +45,7 @@ const Header = () => {
                 </div>
             </Logo>
             <Nav>
-                <NavItem as={Link} to="/proboard">
+                <NavItem as={Link} to="/supplierboard">
                     게시판
                 </NavItem>
                 <NavItem as={Link} to="/agriboard">
@@ -65,7 +65,7 @@ const Header = () => {
                             <DropItem as={Link} to="/sellerboard">
                                 판매자 정보 게시판
                             </DropItem>
-                            <DropItem as={Link} to="/proboard">
+                            <DropItem as={Link} to="/supplierboard">
                                 농산물 등록 게시판
                             </DropItem>
                             <DropItem as={Link} to="/Inquiry/personal">

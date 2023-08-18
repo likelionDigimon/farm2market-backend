@@ -67,7 +67,7 @@ function ProDetail() {
                             채팅으로 문의하기
                     </ChatButton>
                     <button onClick={handleDelete}>삭제</button> {/* 삭제 버튼 */}
-                    <Link to={`/proboard/prodetail/${id}/supplierupdate`}>
+                    <Link to={`/supplierboard/supplierdetail/${id}/supplierupdate`}>
                         <button>수정하기</button>
                     </Link>
                 </SellerInfoBox>

@@ -39,9 +39,9 @@ function App() {
                         <Route path="/mypage" element={<Mypage />} />
                         <Route path="/signin" element={<Signin />} />
                         <Route path="/signup" element={<Signup />} />
-                        <Route path="/proboard" element={<Proboard />} />
-                        <Route path='/proboard/prodetail/:id' element={<ProDetail/>}/>
-                        <Route path='/proboard/prodetail/:id/supplierupdate' element={<Supplierupdate/>}/>
+                        <Route path="/supplierboard" element={<Proboard />} />
+                        <Route path='/supplierboard/supplierdetail/:id' element={<ProDetail/>}/>
+                        <Route path='/supplierboard/supplierdetail/:id/supplierupdate' element={<Supplierupdate/>}/>
                         <Route path="/sellerboard" element={<Sellerboard />} />
                         <Route path="/sellerboard/selldetail/:id" element={<SellDetail/>} />
                         <Route path="/agriboard" element={<Agriboard />} />
