@@ -325,7 +325,7 @@ export const StyledLinkNavItem = styled(Link)`
   }
 `;
 
-export const Inners = ({ children }) => (
+export const Inners = ({ gap = '5rem', children }) => (
     <div
         css={css`
           overflow-x: hidden;
@@ -335,8 +335,26 @@ export const Inners = ({ children }) => (
           flex-direction: column;
           align-items: start;
           padding: 0rem 9.1875rem;
+          box-sizing: border-box;
+          margin-top: 50px;
+          gap: ${gap};
+        `}
+    >
+        {children}
+    </div>
+);
+export const Inners2 = ({ children }) => (
+    <div
+        css={css`
+          overflow-x: hidden;
+          width: 100%;
+          margin: 0 auto;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
           box-sizing:border-box;
-          gap: 51rem;
+          gap: 5rem;
+          
     `}
     >
         {children}
@@ -473,3 +491,11 @@ export const Cblock = ({ width, background, color, children }) => (
         {children}
     </div>
 );
+
+export const OuterContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 101.625rem;  
+`;

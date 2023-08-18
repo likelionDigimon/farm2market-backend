@@ -23,6 +23,7 @@ import Findresultpass from "./component/project/find/findpassword/result";
 import Sellerwriting from "./component/project/writing/aiwriting/sellerwriting";
 import SupplierWriting from './component/project/writing/aiwriting/supplierwriting';
 import Inquirywriting from "./component/project/writing/aiwriting/Inquirywriting";
+import CommunityDetail from './component/project/community/communitydetail/communitydetail';
 
 import "./App.css";
 import Header from "./component/project/header/header";
@@ -45,6 +46,7 @@ function App() {
                         <Route path="/sellerboard/selldetail/:id" element={<SellDetail/>} />
                         <Route path="/agriboard" element={<Agriboard />} />
                         <Route path="/community" element={<Community />} />
+                        <Route path="/community/communitydetail" element={<CommunityDetail/>}/>
                         <Route path="/Inquiry/personal" element={<PersonalInquiry />} />
                         <Route path="/findid" element={<Findid />} />
                         <Route path="/findpass" element={<Findpassword />} />

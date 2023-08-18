@@ -1,12 +1,7 @@
 import styled from "@emotion/styled";
+import theme from "../../../styles/theme";
 
-export const IndexContainer = styled.div`
-  background-color: #fff;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  margin-top: 3 00px;
-`;
+
 
 export const InnerContainer = styled.div`
   margin-top: 50px;
@@ -46,8 +41,7 @@ export const OuterContainer = styled.div`
 `;
 
 export const TableContainer = styled.div`
-  margin-top: 40px;
-  padding: 0 147px;
+
   table {
     width: 100%;
     border-collapse: collapse;
@@ -70,14 +64,15 @@ export const TableContainer = styled.div`
     td {
       height: 60px;
     }
-    input {
+    div {
       width: 100%;
       height: 100%;
       border: none;
       background: transparent;
       color: #000;
-      font-family: Inter;
-      font-size: 14px;
+      display: flex;
+      align-items: center;
+      ${theme.textVariants.body5_bold}
     }
   }
 `;
