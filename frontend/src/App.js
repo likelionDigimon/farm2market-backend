@@ -21,7 +21,7 @@ import Inquirywriting from "./component/project/writing/aiwriting/Inquirywriting
 import SellDetail from "./component/project/board/sellerboard/selldetail/selldetail";
 import SupplierWriting from "./component/project/writing/aiwriting/supplierwriting";
 import Sellupdate from './component/project/board/sellerboard/sellupdate/sellupdate';
-import ProDetail from "./component/project/board/proboard/prodetail";
+import Prodetail from "./component/project/board/proboard/prodetail/prodetail";
 import ScrollToTop from "./ScrollTop";
 import "./App.css";
 import Header from "./component/project/header/header";
@@ -39,8 +39,8 @@ function App() {
                         <Route path="/signin" element={<Signin />} />
                         <Route path="/signup" element={<Signup />} />
                         <Route path="/proboard" element={<Proboard />} />
-                        <Route path="/a" element={<Proboard />} />
-                        <Route path='/supplierboard/supplierdetail/:id' element={<ProDetail />}/>
+                        <Route path="/test" element={<Prodetail />} />
+                        <Route path='/supplierboard/supplierdetail/:id' element={<Prodetail />}/>
                         <Route path="/sellerboard" element={<Sellerboard />} />
                         <Route path="/sellerboard/selldetail/:id" element={<SellDetail/>} />
                         <Route path="/agriboard" element={<Agriboard />} />

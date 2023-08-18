@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom'; // Link 컴포넌트 추가
+import {useParams, Link, useNavigate} from 'react-router-dom'; // Link 컴포넌트 추가
 import { useSelector } from 'react-redux';
 
 import { ChatButton, ContactBox, ContactContent, ContentBox, ContentImg,
@@ -8,12 +8,15 @@ import { ChatButton, ContactBox, ContactContent, ContentBox, ContentImg,
     SellerInfoBox, WantSellerBox, WantSellerContent } from './component';
 
 import axios from "axios";
+import {Mainimg} from "../../sellerboard/selldetail/component";
 
 
 
 function ProDetail() {
     const [data, setData] = useState({});
     const token = useSelector(state => state.token);
+    const [imageData, setImageData] = useState(null);
+    const navigate = useNavigate();
     const { id } = useParams(); // 바깥으로 이동
 
     useEffect(() => {
@@ -22,14 +25,30 @@ function ProDetail() {
                 'X-AUTH-TOKEN': `${token}`
             }
         })
-            .then(response => {
-                const dataArray = response.data;
-                setData(dataArray);
+            .then(imageId => {
+                // 이미지 데이터를 가져오는 API 호출
+                axios.get(`/image/${imageId}`, {
+                    headers: {
+                        'X-AUTH-TOKEN': token
+                    },
+                    params: {
+                        fileId: imageId,
+                    },
+                    responseType: 'arraybuffer'
+                })
+                    .then((response) => {
+                        console.log('이미지 데이터 성공:', response.data);
+                        setImageData(new Uint8Array(response.data));
+                    })
+                    .catch((error) => {
+                        console.error('이미지 데이터 업로드 에러:', error);
+                        // Handle error response
+                    });
             })
             .catch(error => {
                 console.error('Error fetching data:', error);
             });
-    }, [id]); // 의존성 배열에 id 추가
+    }, [id, token]);
 
     function handleDelete() {
         axios.delete(`/supplier-board?id=${id}`, { // id 사용
@@ -39,6 +58,7 @@ function ProDetail() {
         })
             .then(response => {
                 console.log("성공적으로 삭제되었습니다.", response.data);
+                navigate("/proboard");
             })
             .catch(error => {
                 console.error('Error deleting data:', error);
@@ -46,6 +66,12 @@ function ProDetail() {
     }
     return (
         <IndexContainer>
+            {imageData && (
+                <Mainimg
+                    src={`data:image/png;base64,${btoa(String.fromCharCode(...imageData))}`}
+                    alt="이미지"
+                />
+            )}
             <ContentBox>
                 <ContentImg/>
                 <SellerInfoBox>

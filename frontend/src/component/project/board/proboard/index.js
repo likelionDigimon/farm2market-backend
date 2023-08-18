@@ -11,6 +11,7 @@ import {
 import {Link} from "react-router-dom";
 import {OuterContainer} from "../agricultboard/component";
 import axios from "axios";
+import {Mainimg} from "../sellerboard/selldetail/component";
 
 
 const Proboard = () => {
@@ -68,7 +69,6 @@ const Proboard = () => {
       <>
         <Inners>
           <OuterContainer>
-            <button onClick={click}>dfdf</button>
             <Title>공급자 게시판</Title>
             <ButtonContainer>
               <Link
