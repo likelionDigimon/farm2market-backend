@@ -9,15 +9,16 @@ import {
 } from "../../emotion/component";
 import { useForm } from "react-hook-form";
 import axios from 'axios';
+import {useNavigate} from "react-router-dom";
 
 const Signup = () => {
+    const navigate = useNavigate();
     const [role, setRole] = useState('');
     const {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm();
-
+    } = useForm({ mode: 'onChange' });
     const onSubmit = (data) => {
         // 서버로 데이터 전송 또는 다른 로직 처리
         axios
@@ -33,6 +34,7 @@ const Signup = () => {
             .then((response) => {
                 console.log('회원가입 성공!');
                 console.log('회원가입 결과:', response.data);
+                navigate("/signin");
             })
             .catch((error) => {
                 console.error('회원가입 에러:', error);

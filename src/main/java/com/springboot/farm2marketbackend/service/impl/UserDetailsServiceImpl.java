@@ -1,13 +1,17 @@
 package com.springboot.farm2marketbackend.service.impl;
 
+import com.springboot.farm2marketbackend.data.entity.User;
 import com.springboot.farm2marketbackend.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @RequiredArgsConstructor
 @Service
@@ -23,4 +27,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         LOGGER.info("[loadUserByUsername] loadUserByUsername 수행, username : {}", username);
         return userRepository.getByUid(username);
     }
+
+
+
 }

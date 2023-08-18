@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import menuLogo from "../../../img/header/menuLogo.svg";
-import { Link } from "react-router-dom"; // react-router-dom 라이브러리 추가
+import { Link, useNavigate } from "react-router-dom";
 import {
     HeaderContainer,
     Logo,
@@ -13,17 +13,36 @@ import {
     SearchBar,
     LoginButton,
 } from "./component";
-
+import mast from "../../../img/main/Frame.svg"
+import {useDispatch, useSelector} from "react-redux";
+import {logOut} from "../../../redux/auth";
 const Header = () => {
-    const [isDropdownVisible, setDropdownVisible] = useState(false);
+    const [isBottomNavActive, setBottomNavActive] = useState(false);
+    const isLoggedIn = useSelector(state => state.isLoggedIn);
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    const handleLogoClick = () => {
+        setBottomNavActive(!isBottomNavActive);
+    };
+
+    useEffect(() => {
+        setBottomNavActive(false);
+    }, [navigate]);
+    const handleLogout = () => {
+        dispatch(logOut());
+    };
+
 
     return (
-        <HeaderContainer
-            onMouseEnter={() => setDropdownVisible(true)}
-            onMouseLeave={() => setDropdownVisible(false)}
-        >
+        <HeaderContainer>
             <Logo>
-                <img src={menuLogo} alt="menuLogo" />
+                <Link to={"/"}>
+                    <img src={mast} width="50px" height="50px" alt="Mast" />
+                </Link>
+                <div onClick={handleLogoClick} style={{ cursor: "pointer" }}>
+                    <img src={menuLogo} alt="menuLogo" />
+                </div>
             </Logo>
             <Nav>
                 <NavItem as={Link} to="/proboard">
@@ -39,7 +58,7 @@ const Header = () => {
                     마이페이지
                 </NavItem>
             </Nav>
-            {isDropdownVisible && (
+            {isBottomNavActive && (
                 <DropdownMenu>
                     <DropNav>
                         <DropNavGroup>
@@ -64,19 +83,22 @@ const Header = () => {
                             </DropItem>
                         </DropNavGroup>
                         <DropNavGroup>
-                            <DropItem as={Link} to="/sellerboard/selldetail">
-                                정보 수정
-                            </DropItem>
                         </DropNavGroup>
                     </DropNav>
                 </DropdownMenu>
             )}
             <SearchBar placeholder="검색어를 입력하세요" />
-            <Nav>
-                <NavItem as={Link} to="/signin">
-                    <LoginButton>로그인</LoginButton>
-                </NavItem>
-            </Nav>
+
+                {isLoggedIn ?
+                    <Link to={"/" }>
+                        <LoginButton onClick={handleLogout}>로그아웃</LoginButton>
+                    </Link>
+                    :
+                    <Link to={"/signin" }>
+                        <LoginButton>로그인</LoginButton>
+                    </Link>
+                }
+
         </HeaderContainer>
     );
 };

@@ -1,30 +1,32 @@
+import { createSlice } from '@reduxjs/toolkit';
 
-const SET_TOKEN = 'SET_TOKEN';
-const SET_RESPONSE_DATA = 'SET_RESPONSE_DATA';
-
-export const setToken = (token) => ({
-    type: SET_TOKEN,
-    payload: token,
+const authSlice = createSlice({
+    name: 'auth',
+    initialState: {
+        token: '',
+        responseData: {},
+        ID: '',
+        isLoggedIn: false,
+    },
+    reducers: {
+        setToken: (state, action) => {
+            state.token = action.payload;
+            state.isLoggedIn = true;
+        },
+        setResponseData: (state, action) => {
+            state.responseData = action.payload;
+        },
+        setID: (state, action) => {
+            state.ID = action.payload;
+        },
+        logOut: (state, action) => {
+            state.ID = '';
+            state.token = '';
+            state.isLoggedIn = false;
+        },
+    },
 });
-export const setResponseData = (responseData) => ({
-    type: SET_RESPONSE_DATA,
-    payload: responseData,
-});
 
-const initialState = {
-    token: '',
-    responseData: {},
-};
+export const { setToken, setResponseData, setID,logOut } = authSlice.actions;
 
-const authReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case SET_TOKEN:
-            return { ...state, token: action.payload };
-        case SET_RESPONSE_DATA:
-            return { ...state, responseData: action.payload };
-        default:
-            return state;
-    }
-};
-
-export default authReducer;
+export default authSlice.reducer;

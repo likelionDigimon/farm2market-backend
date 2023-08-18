@@ -259,13 +259,12 @@ export const UploadButton = styled.div`
     display: flex;
     justify-content: center; 
     align-items: center; 
-    font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Inter;
     font-size: 40px;
     font-style: normal;
     font-weight: 600;
     line-height: 20px; /* 50% */
     margin-top: 50px;
+    cursor: pointer;
 `;
 
 export const WritingBox = styled.div`

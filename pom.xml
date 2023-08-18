@@ -127,7 +127,7 @@
                 <artifactId>frontend-maven-plugin</artifactId>
                 <version>1.9.1</version>
                 <configuration>
-                    <workingDirectory>C:/Users/wjdgo/OneDrive/문서/GitHub/farm2market-backend/frontend</workingDirectory>
+                    <workingDirectory>frontend</workingDirectory>
                     <installDirectory>target</installDirectory>
                 </configuration>
                 <executions>
@@ -137,7 +137,7 @@
                             <goal>install-node-and-npm</goal>
                         </goals>
                         <configuration>
-                            <nodeVersion>18.17.0</nodeVersion>
+                            <nodeVersion>v18.17.0</nodeVersion>
                             <npmVersion>9.6.7</npmVersion>
                         </configuration>
                     </execution>
@@ -162,9 +162,8 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-antrun-plugin</artifactId>
-                <version>1.4</version> <!-- 버전을 여기에 명시 -->
+                 <!-- 버전을 여기에 명시 -->
                 <executions>
                     <execution>
                         <phase>generate-resources</phase>

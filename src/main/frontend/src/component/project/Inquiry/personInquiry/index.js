@@ -4,7 +4,7 @@ import {
   Container,
   Title,
   ButtonContainer,
-  Button,
+  Button, Inners,
 } from "../../../emotion/component";
 import {Link} from "react-router-dom";
 const PersonalInquiry = () => {
@@ -87,7 +87,7 @@ const PersonalInquiry = () => {
 
   return (
     <>
-      <Container>
+      <Inners>
         <OuterContainer>
           <Title>개인 문의 내용</Title>
           <ButtonContainer>
@@ -129,7 +129,7 @@ const PersonalInquiry = () => {
             </tbody>
           </table>
         </TableContainer>
-      </Container>
+      </Inners>
     </>
   );
 };

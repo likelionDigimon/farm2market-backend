@@ -10,7 +10,7 @@ import {
     InputPass,
 } from "./component";
 import { Nav, NavItem } from "../header/component";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useDispatch, useSelector } from 'react-redux';
 import {setResponseData, setToken} from "../../../redux/auth";
@@ -21,8 +21,13 @@ const Signin = () => {
 
     const dispatch = useDispatch();
     const token = useSelector(state => state.token);
-    const responseData = useSelector(state => state.responseData);
 
+    const onclick = () => {
+        console.log(
+            token
+        )
+    }
+    const navigate = useNavigate();
     const onSubmit = (e) => {
         e.preventDefault();
 
@@ -34,6 +39,7 @@ const Signin = () => {
                 console.log('유저 정보:', response.data);
                 dispatch(setToken(response.data.token));
                 dispatch(setResponseData(response.data));
+                navigate('/');
             })
             .catch((error) => {
                 console.log('Request failed:', error);
@@ -59,13 +65,12 @@ const Signin = () => {
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
-                        <button type="submit">가입 하기</button>
                     </form>
-                    {/*<Nav>*/}
-                    {/*    <NavItem as={Link} to="/proboard">*/}
-                    {/*        <SignButton>로그인</SignButton>*/}
-                    {/*    </NavItem>*/}
-                    {/*</Nav>*/}
+                    <Nav>
+                        <NavItem as={Link} to="/proboard">
+                            <SignButton onClick={onSubmit}>로그인</SignButton>
+                        </NavItem>
+                    </Nav>
 
                     <Signcheck>
                         <Link

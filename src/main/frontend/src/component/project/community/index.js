@@ -9,15 +9,13 @@ import {
 import {  TableContainer } from "./component";
 import {Link} from "react-router-dom";
 import axios from "axios";
-
-
 const Community = () => {
   const [Array,setArray] = useState([]);
 
   useEffect(() => {
     axios.get('/all')
         .then(response => {
-          const dataArray = response.data; 
+          const dataArray = response.data; // Assuming the response data is an array
           setArray(dataArray);
         })
         .catch(error => {

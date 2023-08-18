@@ -2,6 +2,7 @@ package com.springboot.farm2marketbackend.controller;
 
 import com.springboot.farm2marketbackend.data.dto.SignInResultDto;
 import com.springboot.farm2marketbackend.data.dto.SignUpResultDto;
+import com.springboot.farm2marketbackend.data.entity.User;
 import com.springboot.farm2marketbackend.service.FindUserService;
 import com.springboot.farm2marketbackend.service.SignService;
 import io.swagger.annotations.ApiImplicitParam;
@@ -51,7 +52,8 @@ public class SignController {
         SignInResultDto signInResultDto = signService.signIn(id, password);
 
         if (signInResultDto.getCode() == 0) {
-            LOGGER.info("[signIn] 정상적으로 로그인되었습니다. id : {}, token : {}", id,
+
+            LOGGER.info("[signIn] 정상적으로 로그인되었습니다. name : {}, id : {}, token : {}", signInResultDto.getName(), id,
                     signInResultDto.getToken());
         }
         return signInResultDto;

@@ -5,12 +5,14 @@ import {
   Title,
   FootContainer,
   ButtonContainer,
+  OuterContainer,
   Inners,
   InblockContainer,
 } from "../../../emotion/component";
 import {Link} from "react-router-dom";
 import {OuterContainer} from "../agricultboard/component";
 import axios from "axios";
+
 const Sellerboard = () => {
   const [Array,setArray] = useState([]);
 

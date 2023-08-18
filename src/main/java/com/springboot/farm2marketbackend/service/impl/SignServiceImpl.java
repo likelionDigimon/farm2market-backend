@@ -1,6 +1,8 @@
 package com.springboot.farm2marketbackend.service.impl;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 import com.springboot.farm2marketbackend.common.CommonResponse;
 import com.springboot.farm2marketbackend.config.security.JwtTokenProvider;
@@ -12,6 +14,9 @@ import com.springboot.farm2marketbackend.service.SignService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -72,6 +77,8 @@ public class SignServiceImpl implements SignService {
 
     @Override
     public SignInResultDto signIn(String id, String password) throws RuntimeException {
+
+
         LOGGER.info("[getSignInResult] signDataHandler 로 회원 정보 요청");
         User user = userRepository.getByUid(id);
         LOGGER.info("[getSignInResult] Id : {}", id);
@@ -86,10 +93,12 @@ public class SignServiceImpl implements SignService {
         SignInResultDto signInResultDto = SignInResultDto.builder()
                 .token(jwtTokenProvider.createToken(String.valueOf(user.getUid()),
                         user.getRoles()))
+                .name(user.getName())
                 .build();
 
         LOGGER.info("[getSignInResult] SignInResultDto 객체에 값 주입");
         setSuccessResult(signInResultDto);
+
 
         return signInResultDto;
     }
@@ -108,4 +117,21 @@ public class SignServiceImpl implements SignService {
         result.setMsg(CommonResponse.FAIL.getMsg());
     }
 
+    public List<User> findAllUsers() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null && authentication.isAuthenticated() && authentication.getPrincipal() instanceof UserDetails) {
+            UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+            String loggedInUserId = userDetails.getUsername(); // 로그인한 사용자의 id
+
+            User loggedInUser = userRepository.getByUid(loggedInUserId); // 로그인한 사용자의 정보 반환
+
+            List<User> userList = new ArrayList<>();
+            userList.add(loggedInUser);
+
+            return userList;
+        } else {
+            // 로그인한 사용자 정보를 가져올 수 없는 경우에 대한 처리
+            return null;
+        }
+    }
 }

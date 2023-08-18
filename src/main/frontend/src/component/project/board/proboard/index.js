@@ -60,7 +60,7 @@ const Proboard = () => {
           <Title>공급자 게시판</Title>
           <ButtonContainer>
             <Link
-                to="/seller/write"
+                to="/provider/wirte"
             >
               <Button>
                 <svg
