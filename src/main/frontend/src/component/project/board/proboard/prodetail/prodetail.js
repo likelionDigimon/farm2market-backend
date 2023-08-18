@@ -17,7 +17,7 @@ function ProDetail() {
     const { id } = useParams(); // 바깥으로 이동
 
     useEffect(() => {
-        axios.get(`/seller-board/${id}`, {
+        axios.get(`/supplier-board/${id}`, {
             headers: {
                 'X-AUTH-TOKEN': `${token}`
             }
@@ -32,7 +32,7 @@ function ProDetail() {
     }, [id]); // 의존성 배열에 id 추가
 
     function handleDelete() {
-        axios.delete(`/seller-board?id=${id}`, { // id 사용
+        axios.delete(`/supplier-board?id=${id}`, { // id 사용
             headers: {
                 'X-AUTH-TOKEN': `${token}`
             }

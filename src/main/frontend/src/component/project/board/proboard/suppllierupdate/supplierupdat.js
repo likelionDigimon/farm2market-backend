@@ -45,7 +45,7 @@ function Supplierupdate() {
 
 
   useEffect(() => {
-      axios.get(`/seller-board/${id}`, {
+      axios.get(`/supplier-board/${id}`, {
         headers: {
           'X-AUTH-TOKEN': `${token}`
         }
@@ -81,7 +81,7 @@ function Supplierupdate() {
       formData.append('product', product);
       formData.append('keyword', keyword);
   
-      axios.put(`/seller-board/${id}`, formData, {
+      axios.put(`/supplier-board/${id}`, formData, {
         headers: {
           'X-AUTH-TOKEN': token,
           'Content-Type': 'multipart/form-data',
