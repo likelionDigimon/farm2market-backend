@@ -34,11 +34,12 @@ public class SupplierBoard {
 
     @Column(nullable = false)
     private String keyword;
+    @JsonManagedReference
     @OneToOne
     @JoinColumn(name = "user_id", insertable = false, updatable = false)
     private User user;
-   @Column(name="user_id")
-   private Long user_id;
+    @Column(name="user_id")
+    private Long user_id;
     @Column(length = 1000)
     private String title;
     @Column(length = 1000)
@@ -59,4 +60,3 @@ public class SupplierBoard {
     @LastModifiedDate
     private LocalDateTime modifiedDate;
 }
-

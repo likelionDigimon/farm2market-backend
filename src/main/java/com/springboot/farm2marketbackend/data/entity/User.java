@@ -1,5 +1,6 @@
 package com.springboot.farm2marketbackend.data.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -38,6 +39,7 @@ public class User implements UserDetails {
     @Column(nullable = false)
     private String phonenumber;
 
+    @JsonBackReference
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private SupplierBoard supplierBoard;
     @ElementCollection(fetch = FetchType.EAGER)

@@ -9,24 +9,27 @@ import axios from 'axios';
 
 
 function CommunityDetail() {
-    const [data, setData] = useState(null);
-    const { id } = useParams();  // URL로부터 게시물 ID 가져오기
+    const [data, setData] = useState({});
+    const { id } = useParams();
     const token = useSelector(state => state.token);
     const responseData = useSelector(state => state.responseData);
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
-  
-  
+    
     const check = () => {
       console.log('토큰 값:', token);
       console.log('유저 정보:', responseData.data);
     }  
-
+    const questionDto = {
+        author: responseData.token,
+        content: content,
+        title: title
+      };
   
 
       useEffect(() => {
         // API에서 데이터 가져오기
-        axios.get(`/?id=1`, {
+        axios.get(`/?id=${id}`, {
             headers: {
               'X-AUTH-TOKEN': token,
               'Content-Type': 'application/json',
@@ -38,12 +41,11 @@ function CommunityDetail() {
             .catch(error => {
                 console.error('Error fetching data:', error);
             });
-    }, [id, token]);
+      }, [id, token]);
+      
     
 
-    if (!data) {
-        return <div>Loading...</div>;
-    }
+
     return (
         <IndexContainer>
             <ContentBox>

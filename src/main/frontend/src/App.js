@@ -46,7 +46,7 @@ function App() {
                         <Route path="/sellerboard/selldetail/:id" element={<SellDetail/>} />
                         <Route path="/agriboard" element={<Agriboard />} />
                         <Route path="/community" element={<Community />} />
-                        <Route path="/community/communitydetail" element={<CommunityDetail/>}/>
+                        <Route path="/community/communitydetail/:id" element={<CommunityDetail/>}/>
                         <Route path="/Inquiry/personal" element={<PersonalInquiry />} />
                         <Route path="/findid" element={<Findid />} />
                         <Route path="/findpass" element={<Findpassword />} />

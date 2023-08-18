@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react"; // useEffect 추가
+import axios from 'axios';
 
 import {
   ProjectBox2,
@@ -13,6 +14,20 @@ import test3 from "../../../../json/test3.json";
 import {Link} from "react-router-dom";
 
 const Agriboard = () => {
+  const [dataArr, setDataArr] = useState([]);
+
+  useEffect(() => {
+    axios.get('/seller-board/getAllSellerBoard')
+        .then(response => {
+          const dataArray = response.data; // Assuming the response data is an array
+          setArray(dataArray);
+        })
+        .catch(error => {
+          console.error('Error fetching data:', error);
+        });
+  }, []);
+
+
   // 한 페이지에서 보여줄 개수
   const items = 8;
   // 현 페이지를 나타낼 상태
@@ -23,7 +38,7 @@ const Agriboard = () => {
   const endIndex = startIndex + items;
 
   // 페이지 범위에 따라 데이터 분할
-  const currentItems = test3.Project.slice(startIndex, endIndex);
+  const currentItems = Array.slice(startIndex, endIndex);
 
   // 현 페이지의 상태를 변화 시켜 페이지 이동
   const handlePrevPage = () => {
@@ -32,7 +47,7 @@ const Agriboard = () => {
     }
   };
   const handleNextPage = () => {
-    const totalPages = Math.ceil(test3.Project.length / items);
+    const totalPages = Math.ceil(Array.length / items);
     if (currentPage < totalPages) {
       setCurrentPage(currentPage + 1);
     }

@@ -53,7 +53,7 @@ const Community = () => {
             {Array.map((item, index) => (
               <tr key={index}>
                 <td>
-                  <Link to="/community/communitydetail">
+                  <Link to={`/community/communitydetail/${item.id}`}>
                     <div>{truncateText(item.title, 30)}</div>
                   </Link>
                 </td>
